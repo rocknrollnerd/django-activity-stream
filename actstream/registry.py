@@ -78,11 +78,6 @@ def validate(model_class, exception_class=ImproperlyConfigured):
         raise exception_class(
             'The model %r is abstract, so it cannot be registered with '
             'actstream.' % model_class)
-    if not is_installed(model_class):
-        raise exception_class(
-            'The model %r is not installed, please put the app "%s" in your '
-            'INSTALLED_APPS setting.' % (model_class,
-                                         model_class._meta.app_label))
     return model_class
 
 
